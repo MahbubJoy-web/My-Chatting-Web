@@ -1,0 +1,37 @@
+.main_nav{
+    @apply w-[50px] h-[50px] absolute  bg-[#FBFBFB] rounded-full flex items-center justify-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] duration-[.3s] ;
+}
+.openManu {
+    @apply w-[300px] rounded-lg
+}
+.Icon{ 
+    @apply absolute translate-y-[-50%] text-gray-500 
+}
+.Icon ul{ 
+    @apply flex gap-5
+}
+.icon1{
+    @apply left-5
+}
+.icon2{
+    @apply right-5
+}
+.HideIcon{
+    @apply top-[-50%] scale-0
+}
+.ShowIcon{
+    @apply top-[50%] duration-[.6s]
+}
+.Icon ul li a {
+    @apply text-xl
+}
+.Icon ul li {
+    @apply relative
+}
+.Icon ul li p {
+    @apply text-[14px] px-2 absolute bg-[#FBFBFB] top-[-30%] left-[50%] translate-x-[-50%] rounded-sm flex items-center justify-center duration-[.8s] opacity-[0%]
+}
+.Icon ul li:hover p {
+    @apply top-[-230%] opacity-[100%]
+}
+
