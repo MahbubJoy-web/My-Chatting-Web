@@ -17,7 +17,8 @@ import AllFriends from './Components/Pages/AllFriends'
 import Blocklist from './Components/Pages/Blocklist'
 import Msg from './Components/Pages/Msg'
 import AboutPage from './Components/Pages/AboutPage'
-import Privecy from './Components/Pages/privecy'
+import PolicyPage from './Components/Pages/PolicyPage'
+
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
       <Route path='/blocklist' element={<Blocklist/>} />
       <Route path='/massege' element={<Msg/>} />
       <Route path='/About' element={<AboutPage/>} />
-      <Route path='/privecy' element={<Privecy/>} />
+      <Route path='/privecy' element={<PolicyPage/>} />
       </Route>
       </Route>
 
