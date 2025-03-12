@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CurrentUser } from '../../Slice/UserSlice';
 import { BeatLoader } from 'react-spinners';
 import { getDatabase, push, ref, set } from "firebase/database";
+import './loginRes.css'
 
 
 const Login = () => {
@@ -136,19 +137,17 @@ const Login = () => {
   }
   return (
     <>
-      <div className="w-full h-screen bg-[#4CAB72] flex justify-center items-center">
-        <div className="main_row py-[117px] px-[151px]">
+      <div className="h-screen bg-[#4CAB72] flex justify-center items-center">
+        <div className="main_row w-full max-w-[1512px] py-[117px]">
           <div
             style={{
               backgroundImage: `url(${formbg})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              width: '1512px',
-              height: '982px',
             }}
-            className="Main_bg py-[66px] pl-[62px] w-[1512px] bg-[#fffcfc] rounded-[70px] relative"
+            className="Main_bg py-[66px] pl-[62px] w-full bg-[#fffcfc] rounded-[70px] relative"
           >
-            <div className="form w-[700px] rounded-[50px] pt-[54px] pb-[144px] bg-[#ddd6d64a] border-[3px] border-white backdrop-filter backdrop-blur-[8px] ">
+            <div className="form max-w-[600px] max-h-[850px]] rounded-[50px] pt-[54px] pb-[144px] bg-[#ddd6d64a] border-[3px] border-white backdrop-filter backdrop-blur-[8px] ">
               <h2 className="text-[52px] font-poppins font-bold text-center text-white">Login</h2>
               <p className="text-[16px] font-poppins font-medium text-white text-center">
                 I Have no Account?{' '}
@@ -237,7 +236,7 @@ const Login = () => {
                 </div>
               </div>
             </div>
-            <div className="leaf absolute bottom-[1px] right-[90px]">
+            <div className="leaf w-[800px] absolute bottom-[0px] right-[130px] hidden">
               <img src={leaf} alt="" />
             </div>
           </div>

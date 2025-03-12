@@ -1,0 +1,21 @@
+.main_row{
+    @apply sm:px-[50px] sm:py-[0px]
+}
+.Main_bg{
+    @apply md:pl-[66px] sm:p-3
+}
+.log{
+    @apply sm:text-[14px]
+}
+.head_text{
+    @apply sm:text-[40px] md:text-[52px]
+}
+.form{
+    @apply sm:pb-[100px] 
+}
+.Main_Input{
+    @apply sm:mt-[40px] sm:pr-[15px] sm:pl-[20px] md:pr-[30px] md:pl-[30px] lg:mt-[64px]
+}
+.leaf{
+    @apply 2xl:block
+}

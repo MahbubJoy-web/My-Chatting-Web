@@ -17,6 +17,7 @@ export default {
       'poppins': ['Poppins', 'sans-serif'],
       'Big_Shoulders': ['Big Shoulders', 'sans-serif'],
     },
+
   },
   plugins: [],
 }

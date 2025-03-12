@@ -8,6 +8,7 @@ import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInW
 import { Bounce, toast } from 'react-toastify';
 import ClipLoader from "react-spinners/ClipLoader";
 import { BeatLoader } from 'react-spinners';
+import './RegisterRes.css'
 
 const Register = () => {
   const [Data, setData] = useState({ Name: '', Email: '', Password: '' });
@@ -134,27 +135,24 @@ const Register = () => {
 
   return (
     <>
-      <div className="w-full h-screen bg-[#4CAB72] flex justify-center items-center">
-        <div className="main_row py-[117px] px-[151px]">
+      <div className="h-screen flex items-center justify-center bg-[#4CAB72] ">
+        <div className="main_row w-full max-w-[1512px] py-[117px] ">
           <div
             style={{
               backgroundImage: `url(${formbg})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              width: '1512px',
-              height: '982px',
             }}
-            className="Main_bg py-[66px] pl-[62px] w-[1512px] bg-[#fffcfc] rounded-[70px] relative"
-          >
-            <div className="form w-[700px] rounded-[50px] pt-[54px] pb-[144px] bg-[#ddd6d64a] border-[3px] border-white backdrop-filter backdrop-blur-[8px] ">
-              <h2 className="text-[52px] font-poppins font-bold text-center text-white">Get Started</h2>
-              <p className="text-[16px] font-poppins font-medium text-white text-center">
+            className="Main_bg py-[66px] pl-[62px] max-h-[982px]  w-full  bg-[#fffcfc] rounded-[70px] relative">
+            <div className="form max-w-[600px] max-h-[850px] rounded-[50px] pt-[54px] pb-[144px] bg-[#ddd6d64a] border-[3px] border-white backdrop-filter backdrop-blur-[8px] ">
+              <h2 className="head_text text-[52px] font-poppins font-bold text-center text-white">Get Started</h2>
+              <p className=" log text-[16px] font-poppins font-medium text-white text-center">
                 Already have an Account?{' '}
-                <Link to={'/login'} className="text-[16px] font-poppins font-medium text-BandColor">
+                <Link to={'/login'} className=" font-poppins font-medium text-BandColor">
                   Log in
                 </Link>
               </p>
-              <div className="Main-Input mt-[64px] pl-[66px] pr-[115px] flex flex-col gap-[30px] ">
+              <div className="Main_Input mt-[64px] pl-[66px] pr-[115px] flex flex-col gap-[30px] ">
                 <p className="text-md font-poppins font-medium text-center text-red-300 mt-2">
                   {Error}
                 </p>
@@ -220,9 +218,9 @@ const Register = () => {
                   </button>
                   }
                 </div>
-                <div className="w-full flex items-center gap-3">
+                <div className="w-full flex justify-center items-center gap-3">
                   <div className="w-[184px] h-[3px] bg-[#F4F4F4]"> </div>
-                  <h2 className="text-[16px] font-poppins font-medium text-white">Or Sign Up with</h2>
+                  <h2 className="text-[16px] font-poppins font-medium text-white text-center">Or Sign Up with</h2>
                   <div className="w-[180px] h-[3px] bg-[#F4F4F4]"> </div>
                 </div>
                 <div className="signup w-full flex justify-center gap-3">
@@ -241,7 +239,7 @@ const Register = () => {
                 </div>
               </div>
             </div>
-            <div className="leaf absolute bottom-[1px] right-[90px]">
+            <div className="leaf w-[800px] absolute bottom-[0px] right-[130px] hidden">
               <img src={leaf} alt="" />
             </div>
           </div>
@@ -252,3 +250,122 @@ const Register = () => {
 };
 
 export default Register;
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import { Link, useNavigate } from 'react-router-dom';
+// import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup, GoogleAuthProvider, updateProfile } from 'firebase/auth';
+// import { Bounce, toast } from 'react-toastify';
+// import { BeatLoader } from 'react-spinners';
+// import formbg from '../../assets/Image/frombg.png';
+// import goog from '../../assets/Image/google 1.png';
+// import apple from '../../assets/Image/apple-seeklogo.com 1.png';
+// import leaf from '../../assets/Image/leaf.png';
+
+// const Register = () => {
+//   const [Data, setData] = useState({ Name: '', Email: '', Password: '' });
+//   const [Error, setError] = useState('');
+//   const navigate = useNavigate();
+//   const [loading, setLoading] = useState(false);
+//   const auth = getAuth();
+//   const provider = new GoogleAuthProvider();
+
+//   const handleSubmit = () => {
+//     const { Name, Email, Password } = Data;
+//     if (!Name || !Email || !Password) {
+//       setError('All fields are required');
+//       return;
+//     }
+//     setLoading(true);
+//     createUserWithEmailAndPassword(auth, Email, Password)
+//       .then(() => {
+//         updateProfile(auth.currentUser, { displayName: Name })
+//           .then(() => sendEmailVerification(auth.currentUser))
+//           .then(() => {
+//             toast.success('Email verification sent!', { theme: 'dark', transition: Bounce });
+//             navigate('/login');
+//           });
+//       })
+//       .catch((error) => {
+//         setError(error.message);
+//         setLoading(false);
+//       });
+//     // ===============Google button====================
+//    const handleGoogle =()=>{
+//     signInWithPopup(auth, provider)
+//   .then((result) => {
+//     // This gives you a Google Access Token. You can use it to access the Google API.
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+//     // The signed-in user info.
+//     const user = result.user;
+//     // IdP data available using getAdditionalUserInfo(result)
+//     // ...
+//   }).catch((error) => {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // The email of the user's account used.
+//     const email = error.customData.email;
+//     // The AuthCredential type that was used.
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//     // ...
+//   });
+      
+
+//   };
+// }
+
+//   return (
+//     <div className="w-full min-h-screen flex items-center justify-center bg-[#4CAB72] px-4">
+//       <div className="relative w-full max-w-[1510px] max-h-[982px] bg-white rounded-3xl shadow-xl overflow-hidden p-8 md:p-6 sm:p-4" style={{ backgroundImage: `url(${formbg})`, backgroundSize: 'cover' }}>
+//         <div className="form w-full max-w-lg rounded-[50px] pt-[54px] pb-[144px] bg-[#ddd6d64a] border-[3px] border-white backdrop-filter backdrop-blur-[8px] p-6">
+//           <h2 className="text-[52px] md:text-2xl sm:text-xl font-bold text-center text-white">Get Started</h2>
+//           <p className="text-center text-white text-sm md:text-base">Already have an account? <Link to='/login' className="text-blue-400">Log in</Link></p>
+//           <p className="text-red-500 text-center mt-2 text-sm">{Error}</p>
+//           <div className="flex flex-col gap-4 mt-6">
+//             <div className="name">
+//               <label htmlFor="name" className="block text-[18px] font-poppins font-bold text-white">Name</label>
+//               <input id="name" type="text" onChange={(e) => setData({ ...Data, Name: e.target.value })} className="w-full text-[16px] font-poppins text-white border-b-[3px] outline-none bg-transparent" />
+//             </div>
+//             <div className="name">
+//               <label htmlFor="email" className="block text-[18px] font-poppins font-bold text-white">Email</label>
+//               <input id="email" type="email" onChange={(e) => setData({ ...Data, Email: e.target.value })} className="w-full text-[16px] font-poppins text-white border-b-[3px] outline-none bg-transparent" />
+//             </div>
+//             <div className="name">
+//               <label htmlFor="password" className="block text-[18px] font-poppins font-bold text-white">Password</label>
+//               <input id="password" type="password" onChange={(e) => setData({ ...Data, Password: e.target.value })} className="w-full text-[16px] font-poppins text-white border-b-[3px] outline-none bg-transparent" />
+//             </div>
+//           </div>
+//           <div className="mt-4 text-center">
+//             {loading ? <BeatLoader color="white" /> : <button className="btn w-full md:w-auto" onClick={handleSubmit}>Sign Up</button>}
+//           </div>
+//           <div className="flex items-center gap-2 mt-6 justify-center text-white text-sm md:text-base">
+//             <div className="w-16 md:w-20 h-px bg-white"></div> Or Sign Up with <div className="w-16 md:w-20 h-px bg-white"></div>
+//           </div>
+//           <div className="mt-3 signup w-full flex justify-center gap-3">                  
+//              <Link
+//                     to={'#'}
+//                     className="inline-block w-[50px] h-[50px] bg-white rounded-[10px] flex justify-center items-center shadow-[0px_9px_20px_#62FFB4]"
+//                   >
+//                     <img src={apple} alt="" />
+//                   </Link>
+//                   <button
+//                     onClick={''}
+//                     className="inline-block w-[50px] h-[50px] bg-white rounded-[10px] flex justify-center items-center shadow-[0px_9px_20px_#62FFB4]"
+//                   >
+//                     <img src={goog} alt="" />
+//                   </button>
+//                 </div>
+//         </div>
+//         <img src={leaf} alt="leaf" className="absolute bottom-2 right-2 w-8 md:w-12" />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Register;
