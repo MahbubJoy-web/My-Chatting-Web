@@ -137,15 +137,15 @@ const Login = () => {
   }
   return (
     <>
-      <div className="h-screen bg-[#4CAB72] flex justify-center items-center">
-        <div className="main_row w-full max-w-[1512px] py-[117px]">
+      <div className="w-full h-screen flex items-center justify-center bg-[#4CAB72]">
+        <div className="main_row w-full max-w-[1512px]">
           <div
             style={{
               backgroundImage: `url(${formbg})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
-            className="Main_bg py-[66px] pl-[62px] w-full bg-[#fffcfc] rounded-[70px] relative"
+            className="Main_bg py-[66px] p-[6px] w-full bg-[#fffcfc] rounded-[70px] relative"
           >
             <div className="form max-w-[600px] max-h-[850px]] rounded-[50px] pt-[54px] pb-[144px] bg-[#ddd6d64a] border-[3px] border-white backdrop-filter backdrop-blur-[8px] ">
               <h2 className="text-[52px] font-poppins font-bold text-center text-white">Login</h2>
@@ -155,7 +155,7 @@ const Login = () => {
                     Register Now
                 </Link>
               </p>
-              <div className="Main-Input mt-[64px] pl-[66px] pr-[115px] flex flex-col gap-[30px] ">
+              <div className="Main-Input mt-[64px] pl-[30px] pr-[30px] flex flex-col gap-[30px] ">
                 <p className="text-md font-poppins font-medium text-center text-red-300 mt-2">
                   {Error}
                 </p>
@@ -203,7 +203,7 @@ const Login = () => {
                     loader?
                   <button
                     onClick={handleSubmit}
-                    className="main_button w-[290px] py-[12px] px-[112px] bg-BandColor rounded-[10px] text-[16px] font-poppins font-bold text-[#696969] shadow-[0px_9px_20px_#62FFB4] transition-all duration-[0.3s] active:scale-[0.9]"
+                    className="main_button max-w-[290px] py-[12px] px-[30px] sm:px-[112px] bg-BandColor rounded-[10px] text-[16px] font-poppins font-bold text-[#696969] shadow-[0px_9px_20px_#62FFB4] transition-all duration-[0.3s] active:scale-[0.9]"
                   >
                     Sign In
                   </button>

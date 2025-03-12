@@ -11,7 +11,7 @@
     @apply sm:pb-[100px] 
 }
 .Main_Input{
-    @apply sm:mt-[40px] sm:pr-[15px] sm:pl-[20px] md:pr-[30px] md:pl-[30px] lg:mt-[64px]
+    @apply sm:mt-[40px] sm:pr-[50px] sm:pl-[40px] lg:mt-[64px]
 }
 .leaf{
     @apply 2xl:block
