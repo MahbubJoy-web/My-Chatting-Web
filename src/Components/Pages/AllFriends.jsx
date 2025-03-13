@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import CommonUserProfile from '../Common/CommonUserProfile'
 import ButtonV1 from '../Common/ButtonV1'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getDatabase, onValue, push, ref, remove, set } from 'firebase/database'
+import { useNavigate } from 'react-router-dom'
+import { MsgUser } from '../../Slice/MsgFrnd'
 
 const AllFriends = () => {
     // ============Custom Hooks================//
 const [AllFirnd , setAllFriend] = useState([])
-
+// ================redux================//
+const dispatch = useDispatch()
+// ================Navigation================//
+const navigate = useNavigate()
 // ============Firebase Database================//
 const db = getDatabase();
 // ================redux====================//
@@ -25,6 +30,15 @@ const handleBlock = (remote) => {
           console.log(remote.key);
           
 }
+
+// =====================Navigate Button================//
+const handleMassege = (dfsss) => {
+        localStorage.setItem('MsgUser',JSON.stringify(dfsss))
+        dispatch(MsgUser(dfsss))
+        navigate('/massege')
+}
+
+
 // =============Unfriend Fun================//
 const handleUnFriend = (liner) => {
     remove(ref(db, 'AllFriends/' + liner.key))
@@ -40,7 +54,6 @@ useEffect(()=>{
         }else if(item.val().friendEmail == currentUser.email){
             arr.push({friendName: item.val().currentUserName , friendEmail: item.val().currentUserEmail , friendPhoto: item.val().currentUserPhoto, key: item.key})
         }
-        console.log(item.key)
     })
     setAllFriend(arr)
    
@@ -50,18 +63,20 @@ useEffect(()=>{
 
   return (
     <>
-    <div className="main-users">
+    <div className="main-users px-3">
         <div className="container">
             <h2 className='text-[28px] text-gray-600 font-poppins font-semibold'>All Friends</h2>
             {
                 AllFirnd.map((data)=>(
-                <div key={data.key} className=" flex items-center justify-between">
-                <CommonUserProfile CommonUserPhoto={data.friendPhoto} CommonUserName={data.friendName} CommonUserEmail={data.friendEmail}/>
-                <div className=" flex items-center gap-3">
-                <ButtonV1 ButtonV1Click={()=>handleUnFriend(data)} ButtonBG={'bg-[#B2A5FF] text-white active:scale-[0.6] duration-[.9s] cursor-pointer'} ButtonText={'UnFriend'}/>
-                <ButtonV1 ButtonV1Click={()=>handleBlock(data)} ButtonBG={'bg-[#D91656] text-white active:scale-[0.6] duration-[.9s] cursor-pointer'} ButtonText={'Block'}/>
-
-                </div>
+                <div key={data.key} className="flex-wrap flex items-center justify-between border-b-2 border-[#D3D3D3] py-2">
+                    <CommonUserProfile CommonUserPhoto={data.friendPhoto} CommonUserName={data.friendName} CommonUserEmail={data.friendEmail}/>
+                    <div className="mx-auto sm:mx-0">
+                        <div className="flex items-center gap-3">
+                            <ButtonV1 ButtonV1Click={()=>handleMassege(data)} ButtonBG={'lg:hidden bg-[#D91656] text-white active:scale-[0.6] duration-[.9s] cursor-pointer'} ButtonText={'Massege'}/>
+                            <ButtonV1 ButtonV1Click={()=>handleUnFriend(data)} ButtonBG={'bg-[#B2A5FF] text-white active:scale-[0.6] duration-[.9s] cursor-pointer'} ButtonText={'UnFriend'}/>
+                            <ButtonV1 ButtonV1Click={()=>handleBlock(data)} ButtonBG={'bg-[#D91656] text-white active:scale-[0.6] duration-[.9s] cursor-pointer'} ButtonText={'Block'}/>
+                        </div>
+                    </div>
                 </div>
                 ))
             }

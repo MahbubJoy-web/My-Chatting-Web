@@ -16,8 +16,10 @@ useEffect(()=>{
 
   return (
     <>
+    <div className="h-[100vh]">
       <Navber/>
       <Outlet/>
+    </div>
     </>
   )
 }

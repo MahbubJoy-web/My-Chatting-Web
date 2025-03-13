@@ -137,7 +137,7 @@ const Login = () => {
   }
   return (
     <>
-      <div className="w-full h-screen flex items-center justify-center bg-[#4CAB72]">
+      <div className="w-full lg:h-screen flex items-center justify-center bg-[#4CAB72]">
         <div className="main_row w-full max-w-[1512px]">
           <div
             style={{

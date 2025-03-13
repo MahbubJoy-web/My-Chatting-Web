@@ -144,7 +144,7 @@ const MsgBox = () => {
 
     return (
         <>
-            <div className="w-[80%]">
+            <div className="lg:w-[80%] w-full hidden sm:block">
                 {/* ====== User Info ====== */}
                 <div className="userinfo px-4 w-full h-[80px] bg-[#F8FAFC] border-b-2 shadow-md flex gap-4 items-center">
                     <div className="w-[50px] h-[50px] rounded-full bg-gray-200 overflow-hidden">
@@ -156,18 +156,18 @@ const MsgBox = () => {
                     </div>
                 </div>
 
-                {/* ====== Messages Section ====== */}
-                <div className="p-6 w-full h-[650px] bg-[#F8FAFC] flex flex-col overflow-y-scroll">
+
+                <div className="p-6 h-[650px] bg-[#F8FAFC] flex flex-col overflow-y-scroll">
                     {AllMsg.map((item, index) => (
                         item.SenderEmail === currentUser.email ? (
                             // ===========Sender's Message==============
-                            <div key={index} className="py-2 px-3 w-fit my-1 bg-gray-200 ml-auto rounded-md font-poppins text-[16px]">
-                                <p>{item.Msg}</p>
+                            <div key={index} className="max-w-[500px] py-2 px-3 my-1 bg-gray-200 ml-auto rounded-md font-poppins text-[16px]">
+                                <p className="w-full break-words">{item.Msg}</p> {/* Ensures text breaks inside the container */}
                             </div>
                         ) : (
                             // ===========Receiver's Message==============
-                            <div key={index} className="py-2 px-3 w-fit bg-[#A1E3F9] my-1 rounded-md font-poppins text-[16px]">
-                                <p>{item.Msg}</p>
+                            <div key={index} className="max-w-[500px] py-2 px-3 w-fit bg-[#A1E3F9] my-1 rounded-md font-poppins text-[16px]">
+                                <p className="w-full break-words">{item.Msg}</p> {/* Ensures text breaks inside the container */}
                             </div>
                         )
                     ))}

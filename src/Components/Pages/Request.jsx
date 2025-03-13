@@ -50,16 +50,16 @@ useEffect(()=>{
 
   return (
     <>
-        <div className="main-users">
+        <div className="main-users px-3">
         <div className="container">
             <h2 className='text-[28px] text-gray-600 font-poppins font-semibold'>All Request</h2>
             {
                 AllRqst.map((data , k)=>(
-            <div key={k} className=" flex items-center justify-between">
+            <div key={k} className="flex flex-wrap items-center justify-between border-b-2 border-[#D3D3D3] py-2">
                 <div className="">
                 <CommonUserProfile CommonUserPhoto={data.SenderPhoto} CommonUserName={data.SenderName} CommonUserEmail={data.SenderEmailv}/>
                 </div>
-                <div className=" flex items-center gap-4">
+                <div className=" flex items-center gap-4 mx-auto mt-2 sm:mt-0 sm:mx-0">
                 <ButtonV1 ButtonV1Click={()=>handleAccept(data)} ButtonBG={'bg-[#578FCA] text-white active:scale-[0.6] duration-[.9s] cursor-pointer'} ButtonText={'Accept'}/>
                 <ButtonV1 ButtonV1Click={()=>handleRemove(data)} ButtonBG={'bg-[#FF5B5B] text-white active:scale-[0.6] duration-[.9s] cursor-pointer'} ButtonText={'Reject'}/>
                 </div>

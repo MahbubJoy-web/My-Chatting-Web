@@ -225,10 +225,10 @@ const AllUsers = () => {
     return (
         <div className="main-users">
             <div className="container">
-                <h2 className='text-[28px] text-gray-600 font-poppins font-semibold'>All Users</h2>
+                <h2 className='px-3 text-[28px] text-gray-600 font-poppins font-semibold'>All Users</h2>
                 {
                     Alluser.map((data, j) => (
-                        <div key={j} className="flex items-center justify-between">
+                        <div key={j} className="px-6 flex items-center justify-between">
                             <CommonUserProfile 
                                 CommonUserPhoto={data.UserPhoto} 
                                 CommonUserName={data.UserName} 
