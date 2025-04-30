@@ -64,7 +64,8 @@ const Login = () => {
       .then((userCredential) => {
         setloader(true)
         const user = userCredential.user;
-          if(user.emailVerified==true){
+          // if(user.emailVerified==true)
+            // {
             toast.success('Login Successful', {
               position: 'top-left',
               autoClose: 5000,
@@ -86,17 +87,17 @@ const Login = () => {
             });
 
             
-      } else {
-          toast.error('Email not verified!', {
-              position: 'top-right',
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: false,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-          });
-      };
+      // } else {
+      //     toast.error('Email not verified!', {
+      //         position: 'top-right',
+      //         autoClose: 5000,
+      //         hideProgressBar: false,
+      //         closeOnClick: false,
+      //         pauseOnHover: true,
+      //         draggable: true,
+      //         progress: undefined,
+      //     });
+      // };
       })
       .catch((error) => {
         const errorCode = error.code;

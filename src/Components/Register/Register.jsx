@@ -66,14 +66,18 @@ const Register = () => {
       Setloading(false)
       // Proceed with Firebase Authentication
       createUserWithEmailAndPassword(auth, Email, Password)
-      updateProfile(auth.currentUser, {
-        displayName: Data.Name,
-        photoURL: "https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-      }).then((userCredential) => {
-          sendEmailVerification(auth.currentUser).
-          then(() => {
+      .then((userCredential) => {
+        const user = userCredential.user;
+    
+        return updateProfile(user, {
+          displayName: Data.Name,
+          photoURL: "https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+        });
+      }).then(() => {
+          // sendEmailVerification(auth.currentUser).
+          // then(() => {
             Setloading(true)
-            toast.success('Email verification sent !', {
+            toast.success('Account Created !', {
               position: 'top-right',
               autoClose: 5000,
               hideProgressBar: false,
@@ -85,7 +89,7 @@ const Register = () => {
               transition: Bounce,
             });
             nagigate('/login')
-          });
+          // });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -104,6 +108,7 @@ const Register = () => {
     }
 
   };
+  
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
       handleSubmit();
